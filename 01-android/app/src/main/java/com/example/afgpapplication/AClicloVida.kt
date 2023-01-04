@@ -78,4 +78,22 @@ class AClicloVida : AppCompatActivity() {
         mostrarSnackbar("onDestroy")
     }
 
+    override fun onSaveInstanceState(outState: Bundle){
+        outState.run {
+            // Guardar las variables
+            // Primitivos
+            putString("textoGuardado", textoGlobal)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val textoRecuperado:String? = savedInstanceState.getString("textoGuardado")
+        if(textoRecuperado!= null){
+            mostrarSnackbar(textoRecuperado)
+            textoGlobal = textoRecuperado
+        }
+    }
+
 }

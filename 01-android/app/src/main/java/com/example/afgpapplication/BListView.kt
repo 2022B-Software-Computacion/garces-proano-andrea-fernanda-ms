@@ -1,6 +1,6 @@
 package com.example.afgpapplication
 
-import android.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -58,7 +58,7 @@ class BListView : AppCompatActivity() {
                 return true
             }
             R.id.mi_eliminar ->{
-                // abrirDialogo()
+                 abrirDialogo()
                 "${idItemSeleccionado}"
                 return true
             }

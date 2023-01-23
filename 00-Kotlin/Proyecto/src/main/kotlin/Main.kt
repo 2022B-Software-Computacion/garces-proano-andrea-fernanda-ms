@@ -147,12 +147,14 @@ fun borrar_info(archivo: File, codigo: String, tipo: String){
 
 fun main(){
 
+    // CREAR ARCHIVO
     val archivo = File("C:\\Users\\escritorio.virtual9\\Documents\\AppMov\\" +
             "garces-proano-andrea-fernanda-ms\\00-Kotlin\\Proyecto\\src\\main\\kotlin" +
             "\\Datos.txt")
 
     val fecha: Date = Date()
 
+    // CREAR DATOS
     val materia1 = Materia("ISW123", "Programacion", 3,
         "Maria Rosero", 50.5)
 
@@ -165,16 +167,22 @@ fun main(){
 
     val estudiantes: ArrayList<Estudiante> = arrayListOf<Estudiante>(est1, est2, est3)
 
-    //escribir_archivo(crear_string(materia1, estudiantes), archivo)
+    // LLENAR DATOS
+        //escribir_archivo(crear_string(materia1, estudiantes), archivo)
 
-    //leer_archivo(materia1, archivo)
+    // ACTUALIZAR DATOS
+        // DATOS MATERIA
+            //actualizar_archivo(archivo, materia1.nombre, "POO", "materia")
+        // DATOS ESTUDIANTE
+            //actualizar_archivo(archivo, est1.beca.toString(), "false", "estudiante")
 
-    //actualizar_archivo(archivo, materia1.nombre, "POO", "materia")
+    // BORRAR DATOS
+        // BORRAR ESTUDIANTE
+            //borrar_info(archivo, est1.codigo, "estudiante")
+        // BORRAR MATERIA
+            //borrar_info(archivo, materia1.codigo, "materia")
 
-    //actualizar_archivo(archivo, est1.beca.toString(), "false", "estudiante")
-
-    //borrar_info(archivo, est1.codigo, "estudiante")
-
-    //borrar_info(archivo, materia1.codigo, "materia")
+    // LEER DATOS
+        //leer_archivo(materia1, archivo)
 
 }

@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="44dp"
         android:background="@color/b_color"
         android:text="@string/s_text"
         android:textColor="#311B92"
@@ -75,5 +75,38 @@
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="@+id/btn_ir_list_view"
         app:layout_constraintTop_toBottomOf="@+id/btn_ir_list_view" />
+
+    <Button
+        android:id="@+id/btn_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="R. view"
+        app:layout_constraintBottom_toTopOf="@+id/btn_intent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_intent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/btn_intent" />
+
+    <Button
+        android:id="@+id/btn_google_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Google Maps"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sqlite"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="@+id/btn_sqlite"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sqlite" />
+
+    <Button
+        android:id="@+id/btn_intent_firebase_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="UI"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_recycler_view"
+        app:layout_constraintEnd_toStartOf="@+id/btn_recycler_view"
+        app:layout_constraintTop_toTopOf="@+id/btn_recycler_view"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,4 +17,6 @@
         <item>Miercoles</item>
     </string-array>
     <string name="title_activity_ecrud_entrenador">ECrudEntrenador</string>
+    <string name="title_activity_hgoogle_maps">HGoogleMaps</string>
+    <string name="title_activity_hgoogle_maps_activity">HGoogleMapsActivity</string>
 </resources>

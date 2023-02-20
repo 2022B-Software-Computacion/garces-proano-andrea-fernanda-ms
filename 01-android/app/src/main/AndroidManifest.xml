@@ -16,6 +16,13 @@
         android:theme="@style/Theme.Afgpapplication"
         tools:targetApi="31">
         <activity
+            android:name=".JFirebaseFirestore"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".IFirebaseUIAuth"
             android:exported="false">
             <meta-data
@@ -33,11 +40,11 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
 
-             android:value="AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs"
+            android:value="AIzaSyDkLY_k3wzfa4CoSUs7Rqw_hOIcuT37IXI"
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDkLY_k3wzfa4CoSUs7Rqw_hOIcuT37IXI" />
+            android:value="AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs" />
 
         <activity
             android:name=".HGoogleMaps"

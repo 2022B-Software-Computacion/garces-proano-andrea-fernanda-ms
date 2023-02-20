@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".IFirebaseUIAuth">
 
+    <Button
+        android:id="@+id/btn_login_firebase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <Button
+        android:id="@+id/btn_logout_firebase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="290dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

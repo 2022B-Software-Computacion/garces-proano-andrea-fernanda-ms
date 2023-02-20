@@ -14,6 +14,9 @@ class VideoAdapter(private val videos: List<Video>) :
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbnailImageView: ImageView = itemView.findViewById(R.id.video_thumbnail)
         val titleTextView: TextView = itemView.findViewById(R.id.video_title)
+        val channelImageView: ImageView = itemView.findViewById(R.id.video_channel_icon)
+        val channelNameTextView: TextView = itemView.findViewById(R.id.video_channel_name)
+        val viewsTextView: TextView = itemView.findViewById(R.id.video_views_count)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,7 +31,12 @@ class VideoAdapter(private val videos: List<Video>) :
         Glide.with(holder.itemView.context)
             .load(video.thumbnailUrl)
             .into(holder.thumbnailImageView)
+        holder.channelImageView.setImageDrawable(video.channelImg)
+        holder.channelNameTextView.text = video.channelName
+        holder.viewsTextView.text = video.views
     }
 
     override fun getItemCount() = videos.size
+
+
 }

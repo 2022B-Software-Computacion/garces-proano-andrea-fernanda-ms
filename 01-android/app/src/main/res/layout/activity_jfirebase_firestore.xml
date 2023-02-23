@@ -49,15 +49,15 @@
     app:layout_constraintTop_toBottomOf="@+id/btn_fs_datos_prueba" />
 
     <Button
-    android:id="@+id/btn_fs_crear"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:text="Crear"
-    app:layout_constraintBottom_toBottomOf="@+id/btn_fs_ind_comp"
-    app:layout_constraintStart_toEndOf="@+id/btn_fs_ind_comp"
-    app:layout_constraintTop_toTopOf="@+id/btn_fs_ind_comp"
-    app:layout_constraintVertical_bias="0.0" />
+        android:id="@+id/btn_fs_crear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Crear"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintStart_toEndOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintTop_toTopOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ListView
     android:id="@+id/lv_firestore"
@@ -70,15 +70,15 @@
     app:layout_constraintTop_toBottomOf="@+id/btn_fs_order_by" />
 
     <Button
-    android:id="@+id/btn_fs_eliminar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="56dp"
-    android:text="Eliminar"
-    app:layout_constraintBottom_toBottomOf="@+id/btn_fs_crear"
-    app:layout_constraintStart_toEndOf="@+id/btn_fs_crear"
-    app:layout_constraintTop_toTopOf="@+id/btn_fs_crear"
-    app:layout_constraintVertical_bias="0.0" />
+        android:id="@+id/btn_fs_eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Eliminar"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fs_crear"
+        app:layout_constraintStart_toEndOf="@+id/btn_fs_crear"
+        app:layout_constraintTop_toTopOf="@+id/btn_fs_crear"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
     android:id="@+id/btn_fs_epaginar"

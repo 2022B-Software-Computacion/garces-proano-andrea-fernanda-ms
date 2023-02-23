@@ -12,11 +12,13 @@ import com.google.firebase.auth.FirebaseAuth
 
 class IFirebaseUIAuth : AppCompatActivity() {
 
+    //Callback del INTENT de LOGIN
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
-    ){res: FirebaseAuthUIAuthenticationResult ->
-        if(res.resultCode == RESULT_OK){
-            if(res.idpResponse != null){
+    ) { res: FirebaseAuthUIAuthenticationResult ->
+        if (res.resultCode === RESULT_OK) {
+            if (res.idpResponse != null) {
+                // Logica de negocio
                 seLogeo(res.idpResponse!!)
             }
         }
@@ -27,16 +29,18 @@ class IFirebaseUIAuth : AppCompatActivity() {
         setContentView(R.layout.activity_ifirebase_uiauth)
 
         val btnLogin = findViewById<Button>(R.id.btn_login_firebase)
-        btnLogin.setOnClickListener{
+        btnLogin.setOnClickListener {
             val providers = arrayListOf(
+                // Arreglo de PROVIDERS para logearse
+                // EJ: Correo, Facebook, Twitter, Google,
                 AuthUI.IdpConfig.EmailBuilder().build()
             )
-            // Create and launch sign-in intent
+            // Construimos el intent de login
             val signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .build()
-            // Respuesta del intent de Login
+            // RESPUESTA DEL INTENT DE LOGIN
             signInLauncher.launch(signInIntent)
         }
         val btnLogout = findViewById<Button>(R.id.btn_logout_firebase)
@@ -45,20 +49,19 @@ class IFirebaseUIAuth : AppCompatActivity() {
     fun seLogeo(
         res: IdpResponse
     ){
-        val btnLogin = findViewById<Button>(R.id.btn_login_firebase)
+        val btnLogin: Button = findViewById<Button>(R.id.btn_login_firebase)
         val btnLogout = findViewById<Button>(R.id.btn_logout_firebase)
-
         btnLogout.visibility = View.VISIBLE
         btnLogin.visibility = View.INVISIBLE
         if(res.isNewUser == true){
             registrarUsuarioPorPrimeraVez(res)
         }
     }
-        fun registrarUsuarioPorPrimeraVez(
-            usuario: IdpResponse
-        ){
-            // Firestore
-        }
+    fun registrarUsuarioPorPrimeraVez(
+        usuario: IdpResponse
+    ){
+        // Firestore
+    }
 
     fun seDeslogeo(){
         val btnLogin = findViewById<Button>(R.id.btn_login_firebase)
@@ -68,4 +71,3 @@ class IFirebaseUIAuth : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
     }
 }
-

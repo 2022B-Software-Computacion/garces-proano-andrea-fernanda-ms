@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -46,6 +48,48 @@ class JFirebaseFirestore : AppCompatActivity() {
 
         val botonFirebaseEliminar = findViewById<Button>(R.id.btn_fs_eliminar)
         botonFirebaseCrear.setOnClickListener{eliminarRegistro()}
+
+        val botonFirebaseEmpezarPaginar = findViewById<Button>(R.id.btn_fs_epaginar)
+        botonFirebaseEmpezarPaginar.setOnClickListener{ query = null; consultarCiudades(adaptador) }
+
+        val botonFirebasePaginar = findViewById<Button>(R.id.btn_fs_paginar)
+        botonFirebasePaginar.setOnClickListener {
+            consultarCiudades(adaptador)
+        }
+    }
+
+    fun consultarCiudades(adaptador: ArrayAdapter<JCitiesDto>){
+        val db = Firebase.firestore
+        val citiesRef = db.collection("cities").orderBy("population").limit(1)
+
+        var tarea: Task<QuerySnapshot>? = null
+        if(query == null){
+            tarea = citiesRef.get() //1ra
+            limpiarArreglo()
+            adaptador.notifyDataSetChanged()
+        } else {
+            tarea = query!!.get()
+        }
+
+        if(tarea != null) {
+            tarea.addOnSuccessListener { documentSnapshots ->
+                guardarQuery(documentSnapshots, citiesRef)
+                for (ciudad in documentSnapshots) {
+                    anadirArregloCiudad(arreglo, ciudad, adaptador)
+                }
+                adaptador.notifyDataSetChanged()
+            }
+                .addOnFailureListener{
+                    // Si hay fallos
+                }
+        }
+    }
+
+    fun guardarQuery(documentSnapshots: QuerySnapshot, refCities: Query){
+        if(documentSnapshots.size() > 0){
+            val ultimoDocumento = documentSnapshots.documents[documentSnapshots.size() - 1]
+            query = refCities.startAfter(ultimoDocumento)
+        }
     }
 
     fun eliminarRegistro(){
